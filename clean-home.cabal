@@ -76,4 +76,4 @@ Executable clean-home
   
 source-repository head
   type:     git
-  location: http://github.com/ivanperez-keera/clean-home
+  location: git://github.com/ivanperez-keera/clean-home.git
