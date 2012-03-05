@@ -63,7 +63,7 @@ chArgs = Args
  &= help "Use program exit code to determine package presence"
  
  }
- &= summary "clean-home 0.0.1"
+ &= summary "clean-home 0.0.2"
  &= details [ "(c) 2012 Ivan Perez - Keera Studios"
             , "Find more about clean-home at http://keera.es"
             , "and http://github.com/ivanperez-keera/clean-home"
