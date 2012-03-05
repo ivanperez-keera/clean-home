@@ -1,0 +1,25 @@
+This program scans your $HOME dir and checks each element
+whose name begins with . (dot) against a database of know
+configuration files. From that, it determines the program
+(or the package name, if you use search-by-package) that
+may need that file/dir, and checks whether that program is
+installed in your system.
+
+There are two ways of finding programs:
+1) By program name: searches for the config filepath in a
+DB of program names. If a program is found, it checks whether
+that program exists with `which`.
+
+2) By package name: searches for the config filepath in a
+DB of package names. If a package is found, it checks whether
+that package is installed with apt-get. This makes clean-home
+dependent on Debian/Deb-based OSs. I'll work to get that
+fixed. You can request that clean-home uses a different tool
+by providing the name and args to be passed to that tool.
+By default, an empty result is considered a fail and a non-empty
+result is conceived as a match, but you can request to use
+the exit code to determine whether packages are installed or
+not.
+
+Run clean-home --help to see the complete set of options that
+clean-home accepts.
