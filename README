@@ -1,6 +1,7 @@
-WARNING: This project is in an early stage of development
+WARNING: This project is at an early stage of development
 and the database of packages/programs is nearly empty.
-Thus, it will not work, but you can help improve it.
+Thus, it will not work very well yet, but you can help
+improve it.
 
 This program scans your $HOME dir and checks each element
 whose name begins with . (dot) against a database of know
