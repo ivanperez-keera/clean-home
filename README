@@ -1,3 +1,7 @@
+WARNING: This project is in an early stage of development
+and the database of packages/programs is nearly empty.
+Thus, it will not work, but you can help improve it.
+
 This program scans your $HOME dir and checks each element
 whose name begins with . (dot) against a database of know
 configuration files. From that, it determines the program
@@ -23,3 +27,31 @@ not.
 
 Run clean-home --help to see the complete set of options that
 clean-home accepts.
+
+***
+
+How to improve the results:
+
+clean-home keeps two files in its data directory with the
+config file - program/package correspondences. They can be
+located in the program's share dir, under the names PkgList
+and PrgList.
+
+If you install this in your home, they will be in:
+~/.cabal/share/clean-home-0.0.3/data/
+(assuming that you have version 0.0.3 installed)
+
+The only thing you have to do now is add more entries to
+that file.
+
+The format of this file is very simple: it's a haskell value of type
+[ (String, [ String ]) ]
+
+Add/remove/modify entries as you want to tweak it to your needs.
+Once you got a decent configuration, make sure that you send
+me the file, by email or pull request, so that I add your
+entries to the next version of clean-home.
+
+Thanks for taking part in this experiment and... go clean your $HOME!!!
+
+
