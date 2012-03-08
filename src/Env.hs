@@ -1,4 +1,8 @@
-module Env where
+module Env
+   ( module Env
+   , module Args
+   )
+  where
 
 import Control.Monad
 import Control.Exception as E

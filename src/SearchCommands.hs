@@ -4,7 +4,8 @@ module SearchCommands where
 import Args
 import Env
 import SearchCommand.Apt
-import SearchCommand.Which
+-- import SearchCommand.Which
+import SearchCommand.FindExecutable
 import SearchCommand.UserSet
 
 -- FIXME: The problem is here
@@ -14,4 +15,4 @@ checkPackage env fp pkg
   | otherwise                          = userSetSearch env fp pkg
 
 checkProgram :: ConfigSearchCmd
-checkProgram = whichSearch
+checkProgram = findExecutableSearch
