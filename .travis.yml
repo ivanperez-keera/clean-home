@@ -1,44 +1,46 @@
-
-# Don't use a specific environment we install everything ourselves.
 language: generic
-
-# Don't use sudo so the environment boots faster on travis.
-# We can get around sudo, because we are using apt addons to install
-# custom packages.
 sudo: false
-
-# What environments we want to build for.
 matrix:
   include:
-    - env: GHCVER=7.10.3 CABALVER=1.22 ALEXVER=3.1.4 HAPPYVER=1.19.5
-      addons: {apt: {packages: [cabal-install-1.22,ghc-7.10.3,alex-3.1.4,happy-1.19.5], sources: [hvr-ghc]}}
-    - env: GHCVER=8.0.2 CABALVER=1.24 ALEXVER=3.1.4 HAPPYVER=1.19.5
-      addons: {apt: {packages: [cabal-install-1.24,ghc-8.0.2,alex-3.1.4,happy-1.19.5], sources: [hvr-ghc]}}
-
+  - env: GHCVER=7.10.3 CABALVER=1.22 ALEXVER=3.1.4 HAPPYVER=1.19.5
+    addons:
+      apt:
+        packages:
+        - cabal-install-1.22
+        - ghc-7.10.3
+        - alex-3.1.4
+        - happy-1.19.5
+        sources:
+        - hvr-ghc
+  - env: GHCVER=8.0.2 CABALVER=1.24 ALEXVER=3.1.4 HAPPYVER=1.19.5
+    addons:
+      apt:
+        packages:
+        - cabal-install-1.24
+        - ghc-8.0.2
+        - alex-3.1.4
+        - happy-1.19.5
+        sources:
+        - hvr-ghc
 before_install:
 install:
-  # Setup the path to find the custom installed executables.
-  - export PATH=$HOME/.cabal/bin:/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:/opt/alex/$ALEXVER/bin:/opt/happy/$HAPPYVER/bin:$PATH
-  # Update cabal so it can find all of the packages that are required.
-  - travis_retry cabal update
-
+- export PATH=$HOME/.cabal/bin:/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:/opt/alex/$ALEXVER/bin:/opt/happy/$HAPPYVER/bin:$PATH
+- travis_retry cabal update
 before_script:
-  # Work in a sandbox
-  - cabal sandbox init
-
+- cabal sandbox init
 script:
-  # Print version information
-  - ghc   --version
-  - cabal --version
-  - alex  --version
-  - happy --version
-  # According to travis documentation we can use 2 core:
-  # https://docs.travis-ci.com/user/ci-environment/#Overview
-  - travis_retry cabal install -j2
-
+- ghc   --version
+- cabal --version
+- alex  --version
+- happy --version
+- travis_retry cabal install -j2
 notifications:
   email: true
-
 branches:
   only:
-    - master
+  - master
+deploy:
+  provider: hackage
+  username: IvanPerez
+  password:
+    secure: WQaJOFjGabHd7ySMlGj1tvDrqCQOfYidhufevpKsnL05mZ7FM8lXRALf7Aw1NH+otHyYAwIFSXDKh2R8mMfQzpyKZy9PaodWlStfNip3rWoX39l6NwSiEMtZSbOMQxfUCcji4jeegzFgSo0QgVrzBlfiPRzBariCcxlkXLX40WH3w/QLbeFU1oI2pvuVbUhsiCet7KiIY5EmGhvg0UNCtGHnlcW/JjOELkbBJyT9p0Xh5f1frdsvkCHGpIz5feM/0ZOwO+SOnSgHkd+ap7Ack0TiKwW3qILDStqU36cymxgTtyfjSxHxdOhlsaf/nvZSU9zd5WXbGImAg6C2A6MLEnCCRLKLRiufmxOJOYgt5TwWxnFFfUpep/XemmNtNADSbhU2Z9NN1USDCWpmUr4+lwxm2ik+d5Fyiv1hvFqOUrjJI6hhbSKhu7gK6HH2Kw1PKxjp1EzuB7TMdVqXxcT0T6LWeMwSZHD9a8nzX+E0L3gRjAokesbsvxtqb+GZxUB9T/l1iYS8J5zVVVn4lHFNUe695htCViVLfGFp8ZmbIAvBNR0fbBqLi461n/iYCP1EvEFBhf+eHUIBJzL/oPfTzVB+52bdOiLd4Y7+C47D64hC9hOvMMTp8kDiyGo1kdLtJIXu+/198CLLtmGOMeGo2RcwHUUnaKGm37D8C17Qyo0=
