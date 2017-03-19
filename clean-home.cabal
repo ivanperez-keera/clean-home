@@ -7,7 +7,7 @@ Name:                clean-home
 -- The package version. See the Haskell package versioning policy
 -- (http://www.haskell.org/haskellwiki/Package_versioning_policy) for
 -- standards guiding when and how versions should be incremented.
-Version:             0.0.4
+Version:             0.0.4-1
 
 -- A short (one-line) description of the package.
 Synopsis:            Keep your home dir clean by finding old conf files
@@ -31,7 +31,7 @@ Author:              Ivan Perez
 Maintainer:          ivan.perez@keera.es
 
 -- A copyright notice.
--- Copyright:           
+-- Copyright:
 
 Category:            Utils
 
@@ -42,7 +42,7 @@ Data-files: data/PkgList
 
 -- Extra files to be distributed with the package, such as examples or
 -- a README.
--- Extra-source-files:  
+-- Extra-source-files:
 
 -- Constraint on the version of Cabal needed to build this package.
 Cabal-version:       >=1.6
@@ -52,7 +52,7 @@ Executable clean-home
   Main-is: Main.hs
   hs-source-dirs: src/
   ghc-options: -Wall
-  
+
   -- Packages needed in order to build this package.
   Build-depends: base       >= 4 && < 5
                , cmdargs    >= 0.9
@@ -60,7 +60,7 @@ Executable clean-home
                , directory
                , containers >= 0.4
                , IfElse
-  
+
   -- Modules not exported by this package.
   Other-modules: SearchCommand.Apt
                , SearchCommand.FindExecutable
@@ -71,10 +71,10 @@ Executable clean-home
                , Env
                , Control.Exception.Extra
                , System.Err
-  
+
   -- Extra tools (e.g. alex, hsc2hs, ...) needed to build the source.
-  -- Build-tools:         
-  
+  -- Build-tools:
+
 source-repository head
   type:     git
   location: git://github.com/ivanperez-keera/clean-home.git
