@@ -22,7 +22,7 @@ matrix:
         - happy-1.19.5
         sources:
         - hvr-ghc
-before_install:
+before_install: 
 install:
 - export PATH=$HOME/.cabal/bin:/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:/opt/alex/$ALEXVER/bin:/opt/happy/$HAPPYVER/bin:$PATH
 - travis_retry cabal update
@@ -41,9 +41,9 @@ branches:
   - master
 deploy:
   provider: hackage
-  username: IvanPerez
+  username: keera_studios_ci
   password:
-    secure: WQaJOFjGabHd7ySMlGj1tvDrqCQOfYidhufevpKsnL05mZ7FM8lXRALf7Aw1NH+otHyYAwIFSXDKh2R8mMfQzpyKZy9PaodWlStfNip3rWoX39l6NwSiEMtZSbOMQxfUCcji4jeegzFgSo0QgVrzBlfiPRzBariCcxlkXLX40WH3w/QLbeFU1oI2pvuVbUhsiCet7KiIY5EmGhvg0UNCtGHnlcW/JjOELkbBJyT9p0Xh5f1frdsvkCHGpIz5feM/0ZOwO+SOnSgHkd+ap7Ack0TiKwW3qILDStqU36cymxgTtyfjSxHxdOhlsaf/nvZSU9zd5WXbGImAg6C2A6MLEnCCRLKLRiufmxOJOYgt5TwWxnFFfUpep/XemmNtNADSbhU2Z9NN1USDCWpmUr4+lwxm2ik+d5Fyiv1hvFqOUrjJI6hhbSKhu7gK6HH2Kw1PKxjp1EzuB7TMdVqXxcT0T6LWeMwSZHD9a8nzX+E0L3gRjAokesbsvxtqb+GZxUB9T/l1iYS8J5zVVVn4lHFNUe695htCViVLfGFp8ZmbIAvBNR0fbBqLi461n/iYCP1EvEFBhf+eHUIBJzL/oPfTzVB+52bdOiLd4Y7+C47D64hC9hOvMMTp8kDiyGo1kdLtJIXu+/198CLLtmGOMeGo2RcwHUUnaKGm37D8C17Qyo0=
+    secure: Qu+KvGPsnAVUNXkR7zKrA1inMQFKsdpnK99g/sGLrmYAU13ejOZaoImfNnHX/BSzKWhmeHLEDtJ9MAKqfYKfHgk3ZKRE1/fekcnqCNDmmnAegvGk3gl9MS6SJzacgwhSJXmM3sulxUC4zdbY/v91DiomHIjc/1GjrScqfeGQ57qrY8v8yNl7Sq0xVkTkZcp0m6S2n+3yrnBFsfALKZ0ME3oUnjGLH0k8pfyYr9Nu2JD8Tfj6jDAOrOJitVN8p8NWaGz0Kvm3MeGQ2NVC6MWIY5ii/RzJQKrTsPmvysgAfMN3+CgsJIGgUlXssgo7WGA2zSxPOgmcyDVoNu16bXIhz7SlgMoMqu5iwPSHzXYZ3q/c82lCI256LWr1U71vT288fgV2WCIRFGJGaIbFYFVZuT5O5JbKcieJ8lcrabr+pk6afzd65PF+1ulCxI9gQLBwTZxAVhf2+2F1waUjEiMEPqa65/DWvLojnLps5qwEj7Msx+ZOb+r5tdbfdzAuscNN1yqY7dZEqM+9ieOpVfQ67wjfXvZv99s7Zb7Y9SHmF+p/1jRzS5clVlj/fLrKeBvok0pshjh3qb5Ei45s9M3q9p/ivuClhRdWZsCFURu4zLlOvH7KcnFx4Uoi5mGkgyDIbDIGI7AheQ8c0838pHYhxWRyEzHyZiiSn084DqOl8ro=
   on:
     branch: master
-    condition: "$GHCVER = 7.10.3"
+    condition: "$GHCVER = 8.0.2"
